@@ -9,22 +9,22 @@ const questions = [
     {
         type: 'input',
         name: 'name',
-        message: 'Please enter your managers name'
+        message: 'Please enter your managers name:'
     },
     {
         type: 'input',
         name: 'employeeId',
-        message: 'Please enter your managers employee ID'
+        message: 'Please enter your managers employee ID:'
     },
     {
         type: 'input',
         name: 'email',
-        message: 'Please enter your managers email address'
+        message: 'Please enter your managers email address:'
     },
     {
         type: 'input',
         name: 'officeNumber',
-        message: 'Please enter your managers office number'
+        message: 'Please enter your managers office number:'
     },
 ];
 
@@ -32,22 +32,22 @@ const engineerQuestions = [
     {
         type: 'input',
         name: 'name',
-        message: 'Please enter your engineers name'
+        message: 'Please enter your engineers name:'
     },
     {
         type: 'input',
         name: 'employeeId',
-        message: 'Please enter your engineers employee ID'
+        message: 'Please enter your engineers employee ID:'
     },
     {
         type: 'input',
         name: 'email',
-        message: 'Please enter your engineers email address'
+        message: 'Please enter your engineers email address:'
     },
     {
         type: 'input',
         name: 'github',
-        message: 'Please enter your engineers github username'
+        message: 'Please enter your engineers github username:'
     },
 ]
 
@@ -59,7 +59,7 @@ const internQuestions = [
     },
     {
       type: 'input',
-      name: 'id',
+      name: 'employeeId',
       message: 'Please enter your intern\'s employee ID:',
     },
     {
