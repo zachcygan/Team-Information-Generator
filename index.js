@@ -104,7 +104,7 @@ async function writeHtml(data) {
 }
 
 async function addEngineer() {
-    inquirer
+    return inquirer
         .prompt(engineerQuestions)
         .then(val => {
 
@@ -126,7 +126,7 @@ async function addEngineer() {
 }
 
 async function addIntern() {
-    inquirer
+    return inquirer
         .prompt(internQuestions)
         .then(val => {
 
@@ -187,15 +187,28 @@ async function init() {
     if (add === 'Add Engineer') {
         let engineerHtml = await addEngineer();
         html += engineerHtml;
+    } else if (add === 'Quit') {
+        return;
     } else {
         let internHtml = await addIntern();
         html += internHtml;
     }
 
+
+
+    html += `
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGz>
+    `
     fs.writeFile('./dist/indextest.html', html, (err) =>
         err ? console.log(err) : console.log('Success!')
     );
-    
 }
 
 init();
