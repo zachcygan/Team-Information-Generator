@@ -1,30 +1,31 @@
-var fs = require('fs');
+const fs = require('fs');
+const open = require('open');
 const inquirer = require('inquirer');
-const Employee = require("./lib/Employee");
-const Manager = require("./lib/Manager");
-const Intern = require("./lib/Intern");
-const Engineer = require("./lib/Engineer");
 
 const questions = [
     {
         type: 'input',
         name: 'name',
-        message: 'Please enter your managers name:'
+        message: 'Please enter your managers name:',
+        validate: async val => /^[a-zA-Z]+$/gi.test(val),
     },
     {
         type: 'input',
         name: 'employeeId',
-        message: 'Please enter your managers employee ID:'
+        message: 'Please enter your managers employee ID:',
+        validate: async val => /^[0-9]+$/gi.test(val),
     },
     {
         type: 'input',
         name: 'email',
-        message: 'Please enter your managers email address:'
+        message: 'Please enter your managers email address:',
+        validate: async val => /[a-z0-9!@#$%^&*()-_]/gi.test(val)
     },
     {
         type: 'input',
         name: 'officeNumber',
-        message: 'Please enter your managers office number:'
+        message: 'Please enter your managers office number:',
+        validate: async val => /^[0-9]+$/gi.test(val)
     },
 ];
 
@@ -32,22 +33,26 @@ const engineerQuestions = [
     {
         type: 'input',
         name: 'name',
-        message: 'Please enter your engineers name:'
+        message: 'Please enter your engineers name:',
+        validate: async val => /^[a-z]+$/gi.test(val)
     },
     {
         type: 'input',
         name: 'employeeId',
-        message: 'Please enter your engineers employee ID:'
+        message: 'Please enter your engineers employee ID:',
+        validate: async val => /^[0-9]+$/gi.test(val)
     },
     {
         type: 'input',
         name: 'email',
-        message: 'Please enter your engineers email address:'
+        message: 'Please enter your engineers email address:',
+        validate: async val => /[a-z0-9!@#$%^&*()-_]/gi.test(val)
     },
     {
         type: 'input',
         name: 'github',
-        message: 'Please enter your engineers github username:'
+        message: 'Please enter your engineers github username:',
+        validate: async val => /[a-z0-9!@#$%^&*()-_]/gi.test(val),
     },
 ]
 
@@ -56,21 +61,25 @@ const internQuestions = [
       type: 'input',
       name: 'name',
       message: 'Please enter your intern\'s name:',
+      validate: async val => /^[a-z]+$/gi.test(val),
     },
     {
       type: 'input',
       name: 'employeeId',
       message: 'Please enter your intern\'s employee ID:',
+      validate: async val => /^[0-9]+$/gi.test(val),
     },
     {
       type: 'input',
       name: 'email',
       message: 'Please enter your intern\'s email address:',
+      validate: async val => /[a-z0-9!@#$%^&*()-_]/gi.test(val),
     },
     {
       type: 'input',
       name: 'school',
       message: 'Please enter your intern\'s school:',
+      validate: async val => /^[a-z0-9]+$/gi.test(val)
     },
 ];
 
@@ -195,6 +204,7 @@ async function init() {
             html += engineerHtml;
         } else if (add === 'Quit') {
             adding = false;
+            open ('./dist/index.html');
             break;
         } else {
             let internHtml = await addIntern();
