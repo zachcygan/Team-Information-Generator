@@ -93,7 +93,7 @@ async function writeHtml(data) {
             <h5 class="card-title">${data.name} (Manager)</h5>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">ID: ${data.employeeId}</li>
-              <li class="list-group-item">Email: <a href="mailto:${data.email}">${data.email}</a></li>
+              <li class="list-group-item">Email: <a href="mailto: ${data.email}">${data.email}</a></li>
               <li class="list-group-item">Office Number: ${data.officeNumber}</li>
             </ul>
           </div>
@@ -114,7 +114,7 @@ async function addEngineer() {
               <h5 class="card-title">${val.name} (Engineer)</h5>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${val.employeeId}</li>
-                <li class="list-group-item">Email: <a href="mailto:${val.email}">${val.email}</a></li>
+                <li class="list-group-item">Email: <a href="mailto: ${val.email}">${val.email}</a></li>
                 <li class="list-group-item">Github: <a href="https://github.com/${val.github}" target="_blank">@${val.github}</a></li>
               </ul>
             </div>
@@ -136,7 +136,7 @@ async function addIntern() {
               <h5 class="card-title">${val.name} (Intern)</h5>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${val.employeeId}</li>
-                <li class="list-group-item">Email: <a href="mailto:${val.email}">${val.email}</a></li>
+                <li class="list-group-item">Email: <a href="mailto: ${val.email}">${val.email}</a></li>
                 <li class="list-group-item">School: ${val.school}</li>
               </ul>
             </div>
@@ -214,7 +214,7 @@ async function init() {
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGz>
     `
 
-    fs.writeFile('./dist/indextest.html', html, (err) =>
+    fs.writeFile('./dist/index.html', html, (err) =>
         err ? console.log(err) : console.log('Success!')
     );
 }
