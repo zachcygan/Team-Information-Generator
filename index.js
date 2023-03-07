@@ -211,8 +211,8 @@ async function init() {
         }
     }
 
-    html += engineerHtml;
-    html += internHtml;
+    html + engineerHtml;
+    html + internHtml;
     
     html += `
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
