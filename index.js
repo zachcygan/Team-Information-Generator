@@ -193,6 +193,8 @@ function getManager() {
 
 async function init() {
     let html = await getManager();
+    let engineerHtml;
+    let internHtml;
     
     let adding = true;
 
@@ -200,18 +202,20 @@ async function init() {
         let add = await addNext();
 
         if (add === 'Add Engineer') {
-            let engineerHtml = await addEngineer();
-            html += engineerHtml;
+            engineerHtml =  await addEngineer();
+            // html += engineerHtml;
         } else if (add === 'Quit') {
             adding = false;
             open ('./dist/index.html');
             break;
         } else {
-            let internHtml = await addIntern();
-            html += internHtml;
+            internHtml = await addIntern();
+            // html += internHtml;
         }
     }
 
+    html += engineerHtml;
+    html += internHtml;
     
     html += `
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
