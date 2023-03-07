@@ -201,13 +201,13 @@ async function init() {
         let add = await addNext();
 
         if (add === 'Add Engineer') {
-            engineerHtml =  await addEngineer();
+            engineerHtml +=  await addEngineer();
         } else if (add === 'Quit') {
             adding = false;
             open ('./dist/index.html');
             break;
         } else {
-            internHtml = await addIntern();
+            internHtml += await addIntern();
         }
     }
 
