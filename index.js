@@ -203,14 +203,12 @@ async function init() {
 
         if (add === 'Add Engineer') {
             engineerHtml =  await addEngineer();
-            // html += engineerHtml;
         } else if (add === 'Quit') {
             adding = false;
             open ('./dist/index.html');
             break;
         } else {
             internHtml = await addIntern();
-            // html += internHtml;
         }
     }
 
