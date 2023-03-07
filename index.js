@@ -170,7 +170,6 @@ async function addNext() {
             if (val.choice === 'quit') {
                 return;
             }
-            // console.log(val.choice);
             
             return val.choice;
         })
