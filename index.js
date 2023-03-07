@@ -191,30 +191,24 @@ function getManager() {
 
 
 async function init() {
-    let html = await getManager();
-    let engineerHtml;
-    let internHtml;
-    
-    let adding = true;
+  let html = await getManager();
+  let engineerHtml = '';
+  let internHtml = '';
 
-    while(adding) {
-        let add = await addNext();
+  let adding = true;
 
-        if (add === 'Add Engineer') {
-            engineerHtml +=  await addEngineer();
-        } else if (add === 'Quit') {
-            adding = false;
-            open ('./dist/index.html');
-            break;
-        } else {
-            internHtml += await addIntern();
-        }
-    }
+  while (adding) {
+    let add = await addNext();
 
-    html + engineerHtml;
-    html + internHtml;
-    
-    html += `
+    if (add === 'Add Engineer') {
+      engineerHtml += await addEngineer();
+    } else if (add === 'Quit') {
+      adding = false;
+      
+      html += engineerHtml;
+      html += internHtml;
+
+      html += `
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -224,6 +218,12 @@ async function init() {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGz>
     `
+    open('./dist/index.html');
+      break;
+    } else {
+      internHtml += await addIntern();
+    }
+  }
 
     fs.writeFile('./dist/index.html', html, (err) =>
         err ? console.log(err) : console.log('Success!')
