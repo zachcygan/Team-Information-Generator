@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 
-async function addNext() {
+const addNext = async () => {
     return inquirer
         .prompt([
             {
