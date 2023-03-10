@@ -24,6 +24,10 @@ file will be generated and opened automatically with cards that contain the team
 
 To run the tests for the program, simply type "npm run test" in the console of one of the four test files. There are 4 test suites and 19 tests total. All tests should pass. 
 
+## Video Demo
+
+A video demonstration of this program can be found here: https://youtu.be/ISZuIq-8PzE. 
+
 ## Screenshots
 
 ![screenshot of the website](assets/images/screenshot.png)
