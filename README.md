@@ -6,7 +6,7 @@ My motivation for this project was to make a simple program that compiled a dev 
 
 ## Installation
 
-The webpage is available at https://zachcygan.github.io/Team-information-Generator. Be sure to install any dependencies by typing in "npm i" in the console. This will install inquirer, jest, and open. 
+The webpage is available at https://github.com/zachcygan/Team-Information-Generator. Be sure to install any dependencies by typing in "npm i" in the console. This will install inquirer, jest, and open. 
 
 ## Dependencies Used
     - inquirer
